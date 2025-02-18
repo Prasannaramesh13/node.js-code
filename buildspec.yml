@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18  # Use your required Node.js version
+      nodejs: 14.10.0  # Use your required Node.js version
     commands:
       - echo "Installing dependencies..."
       - npm install  # Install packages
