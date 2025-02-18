@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18  # Use your required Node.js version
+    commands:
+      - echo "Installing dependencies..."
+      - npm install  # Install packages
+
+  build:
+    commands:
+      - echo "Building the Node.js application..."
+      - npm run build  # Run build step (if applicable)
+
+  post_build:
+    commands:
+      - echo "Zipping files for deployment..."
+      - zip -r deploy.zip .  # Zip the application for CodeDeploy
+      - echo "Uploading to S3..."
+      - aws s3 cp deploy.zip s3://aws-sample-aws/deploy.zip  # Upload to S3
+
+artifacts:
+  files:
+    - deploy.zip
