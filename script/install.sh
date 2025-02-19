@@ -15,7 +15,7 @@ else
 fi
 
 # Navigate to the app directory
-cd /home/ubuntu
+cd /home/ubuntu/cicd
 
 # Install npm dependencies
 echo "Installing npm dependencies..."
