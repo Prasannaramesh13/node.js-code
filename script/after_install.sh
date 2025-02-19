@@ -2,7 +2,7 @@
 
 echo "After Install: Deploying Node.js application..."
 
-cd /home/ec2-user/myapp
+cd /home/ubuntu
 
 # Install dependencies
 echo "Installing dependencies..."
