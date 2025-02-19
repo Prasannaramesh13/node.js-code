@@ -3,17 +3,30 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/cicd
-    
+
 permissions:
   - object: /home/ubuntu/cicd
     owner: ubuntu
     group: ubuntu
+    mode: 755
+
 hooks:
+  BeforeInstall:
+    - location: script/before_install.sh
+      timeout: 300
+      runas: ubuntu
+
   AfterInstall:
     - location: script/install.sh
       timeout: 300
       runas: ubuntu
+
   ApplicationStart:
     - location: script/start.sh
+      timeout: 300
+      runas: ubuntu
+
+  ApplicationStop:
+    - location: script/stop.sh
       timeout: 300
       runas: ubuntu
