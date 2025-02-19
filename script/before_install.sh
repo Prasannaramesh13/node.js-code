@@ -14,7 +14,7 @@ fi
 
 # Clean up old application files
 echo "Removing old application files..."
-rm -rf /home/ec2-user/myapp
+rm -rf /home/ubuntu
 
 # Ensure necessary dependencies are installed
 echo "Updating system packages..."
@@ -25,5 +25,5 @@ curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
 sudo yum install -y nodejs
 
 # Ensure the app directory exists
-mkdir -p /home/ec2-user/myapp
+mkdir -p /home/ubuntu
 echo "Before Install script execution completed."
