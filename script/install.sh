@@ -1,24 +1,15 @@
 #!/bin/bash
 
-echo "Installing dependencies..."
+# Stop execution on any error
+set -e
 
-# Update the system packages
-sudo yum update -y
-
-# Install Node.js and npm (if not installed)
-if ! command -v node &> /dev/null; then
-  echo "Node.js not found! Installing..."
-  curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
-  sudo yum install -y nodejs
-else
-  echo "Node.js is already installed!"
-fi
-
-# Navigate to the app directory
+# Navigate to the application directory
 cd /home/ubuntu/cicd
 
-# Install npm dependencies
-echo "Installing npm dependencies..."
+# Install Node.js dependencies
 npm install
 
-echo "Installation completed successfully!"
+# Optional: Build the project (if applicable)
+npm run build || echo "No build step"
+
+echo "✔ Node.js dependencies installed successfully!"
