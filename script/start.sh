@@ -1,21 +1,12 @@
 #!/bin/bash
 
-echo "Starting the Node.js application..."
-
 # Navigate to the app directory
 cd /home/ubuntu/cicd
 
-# Stop any running application
-APP_PID=$(lsof -t -i:3000)
+# Stop any running Node.js process
+pm2 stop all || true
 
-if [ ! -z "$APP_PID" ]; then
-  echo "Stopping existing Node.js application with PID $APP_PID..."
-  kill -9 $APP_PID
-else
-  echo "No existing application running on port 3000"
-fi
+# Start the Node.js application
+pm2 start server.js --name "myapp"
 
-# Start the application in the background
-nohup node server.js > app.log 2>&1 &
-
-echo "Application started successfully!"
+echo "✔ Application started successfully!"
