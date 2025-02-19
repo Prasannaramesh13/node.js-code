@@ -8,10 +8,6 @@ permissions:
   - object: /home/ubuntu/cicd
     owner: ubuntu
     group: ubuntu
-    mode: 755
-    type:
-     -directory
-     
 hooks:
   AfterInstall:
     - location: script/install.sh
