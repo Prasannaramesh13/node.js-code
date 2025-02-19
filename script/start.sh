@@ -3,7 +3,7 @@
 echo "Starting the Node.js application..."
 
 # Navigate to the app directory
-cd /home/ubuntu
+cd /home/ubuntu/cicd
 
 # Stop any running application
 APP_PID=$(lsof -t -i:3000)
