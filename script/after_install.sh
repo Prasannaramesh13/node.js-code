@@ -1,4 +1,15 @@
 #!/bin/bash
-cd /home/ec2-user/nodeapp
+
+echo "After Install: Deploying Node.js application..."
+
+cd /home/ec2-user/myapp
+
+# Install dependencies
 echo "Installing dependencies..."
 npm install
+
+# Start the application in the background
+echo "Starting the application..."
+nohup node server.js > app.log 2>&1 &
+
+echo "Deployment completed successfully!"
