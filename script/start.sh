@@ -1,12 +1,12 @@
 #!/bin/bash
+set -e
 
-# Navigate to the app directory
+echo "Running start.sh..."
+
+# Change directory to your application folder
 cd /home/ubuntu/cicd
 
-# Stop any running Node.js process
-pm2 stop all || true
+# Start the application in the background and redirect output to a log file
+nohup node server.js > app.log 2>&1 &
 
-# Start the Node.js application
-pm2 start server.js --name "myapp"
-
-echo "✔ Application started successfully!"
+echo "Application started successfully."
